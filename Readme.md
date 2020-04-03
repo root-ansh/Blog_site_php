@@ -31,7 +31,12 @@ This is supposed to be a full scale Content Management System with whole feature
 1. [install xampp server](https://www.apachefriends.org/download.html).
 2. go to `htdocs ` folder
 3. `git clone` this repo there
-4.  run on browser as [http://localhost/CMS/src ](http://localhost/CMS/src )
+4.  run on browser as [http://localhost/CMS/src ](http://localhost/CMS/ )
+
+5. to deploy on heroku server, create a heroku account and follow 
+[these](https://devcenter.heroku.com/articles/getting-started-with-php#set-up)
+docs.
+
 
 ### Preview :
 
@@ -39,12 +44,12 @@ This is supposed to be a full scale Content Management System with whole feature
 
 ### Screenshots :
 
-![](screenshots/s1.png)  
+![](readme_snaps/s1.png)  
 
-![](screenshots/s2.png)  
+![](readme_snaps/s2.png)  
 
-![](screenshots/s3.png)  
+![](readme_snaps/s3.png)  
 
-![](screenshots/s4.png)
+![](readme_snaps/s4.png)
 
 
