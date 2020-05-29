@@ -1,4 +1,4 @@
-#Curious-notes  [inc]
+# Curious-notes  [inc]
 
 This was supposed to be a simple and responsive  notes web app where user can login/signup , store its notes and logout.  
 
