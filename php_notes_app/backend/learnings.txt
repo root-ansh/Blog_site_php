@@ -1,0 +1,2 @@
+1. ALWAYS CHECK FOR TRUE. because fallse takes the value of '' which fucks the whole logic
+2. learn pdo for creating database
