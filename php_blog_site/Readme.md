@@ -1,6 +1,6 @@
 # Blog CMS (in PHP)
 
-## Liver at :
+## Live at :
 
 - [https://ctools-blog.herokuapp.com](https://ctools-blog.herokuapp.com)
 
