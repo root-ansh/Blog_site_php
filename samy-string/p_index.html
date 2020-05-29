@@ -1,0 +1,283 @@
+<!doctype html>
+<html class="has-navbar-fixed-top has-background-white-bis" lang="en">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport'
+          content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+
+
+    <title>My CMS!</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.8.1/css/bulma.min.css'>
+    <style>
+
+        body {
+            font-family: 'Didact Gothic', sans-serif;
+        }
+
+        #snackbar {
+            visibility: hidden;
+            background-color: #eef2ff;
+            color: #000000;
+            text-align: center;
+            border-radius: 4px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            bottom: 100px;
+            font-size: 40px;
+
+        }
+
+        #snackbar.show {
+            visibility: visible; /* Show the snackbar */
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @-webkit-keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+            to {
+                bottom: 100px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+            to {
+                bottom: 100px;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeout {
+            from {
+                bottom: 100px;
+                opacity: 1;
+            }
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 100px;
+                opacity: 1;
+            }
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<nav class='navbar is-fixed-top is-white' role='navigation' aria-label='main navigation'>
+
+    <section class='navbar-brand'>
+        <span class='navbar-item  has-background-success'>
+            <a class='title  has-text-white has-text-weight-bold' href='p_index.html'> Curioustools</a>
+        </span>
+
+        <a role='button' class='navbar-burger burger' aria-label='menu' aria-expanded='false'
+           data-target='navbarBasicExample'>
+            <span aria-hidden='true'></span>
+            <span aria-hidden='true'></span>
+            <span aria-hidden='true'></span>
+        </a>
+
+    </section>
+
+    <section class='navbar-menu '>
+
+        <div class='navbar-start'>
+            <a class='navbar-item has-text-weight-bold' href='p_index.html'>Home</a>
+            <a class='navbar-item has-text-weight-bold' href='https://root-ansh.github.io/curioustools'>Visit My
+                website </a>
+            <a class='navbar-item has-text-weight-bold' href='static_components/p404.php'>Special Area</a>
+        </div>
+
+    </section>
+</nav>
+
+
+<section class="section">
+    <div class="box is-shadowless">
+        <p class="title is-1 has-text-success has-text-weight-bold has-text-centered">Save My String</p>
+        <p class="subtitle has-text-black has-text-centered">
+            Save my strings is a very simple app. in the right, add a string to our database using your secret key<br>
+            The key could be anything. for eg , if you are dave, add the following data : "dave_gmail_password"
+            followed by your password. we will definitely allow anyone with your key_id to access that data.<br>
+            To access that password, again add "dave_gmail_password" in the right and press recover.
+            and we will show your password on the output box :)
+        </p>
+    </div>
+</section>
+<section class="columns is-centered">
+
+    <section class="column is-5">
+
+        <section class="box is-vcentered">
+            <p class="subtitle is-4 has-text-black has-text-weight-bold">Add new data</p>
+            <div class="field">
+
+                <label class="label" for="id_secret">Secret String</label>
+
+                <input class="input is-primary" type="text" id="id_secret"
+                       placeholder="enter a secret string(Max 32 chars):">
+
+            </div>
+
+            <div class="field">
+                <label class="label" for="id_value">Value</label>
+                <textarea class="textarea is-primary" placeholder="Enter your data here(Max 200 characters)" rows="3"
+                          id="id_value"></textarea>
+            </div>
+
+            <button class="button is-success is-fullwidth has-text-white has-text-weight-bold" type="button"
+                    onclick="uploadUserData()" id="bt_upload_user_data">UPLOAD
+            </button>
+        </section>
+
+    </section>
+
+    <section class="column is-5">
+        <section class="box ">
+            <p class="subtitle is-4 has-text-black has-text-weight-bold">Recover String</p>
+
+            <label class="label" for="id_secret_getdata">Enter your Secret ID to recover your string</label>
+
+            <div class="field is-grouped">
+                <span class="control is-expanded">
+                    <input class="input is-success" id="id_secret_getdata" type="text" placeholder="Your secret id">
+                </span>
+                <span class="control">
+                    <button class="button is-success  has-text-white has-text-weight-bold" type="button"
+                            onclick="getUserData()">RECOVER
+                    </button>
+                </span>
+            </div>
+
+            <label class="label" for="id_output_getdata">Your Data will appear here</label>
+            <textarea class="textarea is-primary" placeholder="Enter your data here" rows="5"
+                      id="id_output_getdata" readonly></textarea>
+
+
+        </section>
+    </section>
+
+
+</section>
+
+<section class="section is-centered">
+    <div class="container is-centered">
+        <span id="snackbar">Snackbar</span>
+
+    </div>
+</section>
+
+
+<script>
+    function uploadUserData() {
+        // 1 verify user input todo.
+        //2 upload data
+        let secret_string = document.getElementById("id_secret").value;
+        let value = document.getElementById("id_value").value;
+        let requestObj = {"type": "save", "secret_key": secret_string, "value": value};
+        let request_string = "req=" + JSON.stringify(requestObj);
+        let xmlHttpReq = new XMLHttpRequest();
+
+        // noinspection UnnecessaryLocalVariableJS
+        let onReadyStateChange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                let responseObj = JSON.parse(this.response);
+
+                if (responseObj["success"] === true) {
+                    showToast("Success");
+                } else {
+                    showToast("Could not Process your request at this time. Try again later")
+                }
+            }
+        };
+        xmlHttpReq.onreadystatechange = onReadyStateChange;
+        xmlHttpReq.open("POST", "backend/DataRepository.php");
+        xmlHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlHttpReq.send(request_string);
+    }
+
+    function getUserData() {
+        // 1 verify user input todo.
+
+        //2 getData
+        let secret_string = document.getElementById("id_secret_getdata").value;
+        let obj = {"type": "get_value", "secret_key": secret_string};
+
+        let request_string = "req=" + JSON.stringify(obj);
+        let xmlHttpReq = new XMLHttpRequest();
+
+        // noinspection UnnecessaryLocalVariableJS
+        let onReadyStateChange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                let responseObj = JSON.parse(this.response);
+
+                if (responseObj["success"] === true) {
+                    document.getElementById("id_output_getdata").innerText = responseObj["user_data"];
+                } else {
+                    showToast("Could not Process your request at this time. Try again later")
+                }
+
+            }
+        };
+
+        xmlHttpReq.onreadystatechange = onReadyStateChange;
+        xmlHttpReq.open("POST", "backend/DataRepository.php");
+        xmlHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlHttpReq.send(request_string);
+    }
+
+    function showToast(message) {
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        x.innerText = message;
+        setTimeout(function () {
+            x.className = x.className.replace("show", "");
+        }, 3000);
+    }
+</script>
+
+<script src='https://code.jquery.com/jquery-3.4.1.min.js'
+        integrity='sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo='
+        crossorigin='anonymous'></script>
+<script>
+    $(document).ready(function () {
+        $('.navbar-burger').click(function () {
+            $('.navbar-burger').toggleClass('is-active');
+            $('.navbar-menu').toggleClass('is-active');
+        });
+    });
+
+</script>
+
+
+</body>
+
+</html>
+
+
+
