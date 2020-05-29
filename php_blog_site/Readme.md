@@ -1,5 +1,11 @@
 # Blog CMS (in PHP)
 
+## Liver at :
+
+- [https://ctools-blog.herokuapp.com](https://ctools-blog.herokuapp.com)
+
+
+
 ### About
 I have been learning php and a lil bit of front end for last one month.  
 This is supposed to be a full scale Content Management System with whole features of a full fledged blogging website
@@ -37,10 +43,6 @@ This is supposed to be a full scale Content Management System with whole feature
 [these](https://devcenter.heroku.com/articles/getting-started-with-php#set-up)
 docs.
 
-
-### Preview :
-
-- [https://ctools-blog.herokuapp.com](https://ctools-blog.herokuapp.com)
 
 ### Screenshots :
 
